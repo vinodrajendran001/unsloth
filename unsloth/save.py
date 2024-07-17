@@ -1060,7 +1060,8 @@ def save_to_gguf(
     n_cpus *= 2
     # Concurrency from https://rentry.org/llama-cpp-conversions#merging-loras-into-a-model
     
-    final_location = f"./{model_directory}/unsloth.{first_conversion.upper()}.gguf"
+    # remove . to support saving the unsloth.q*.gguf to desired directory
+    final_location = f"/{model_directory}/unsloth.{first_conversion.upper()}.gguf"
 
     print(f"Unsloth: [1] Converting model at {model_directory} into {first_conversion} GGUF format.\n"\
           f"The output location will be {final_location}\n"\
